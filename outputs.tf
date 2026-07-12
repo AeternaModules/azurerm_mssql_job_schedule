@@ -1,3 +1,7 @@
+output "mssql_job_schedules_id" {
+  description = "Map of id values across all mssql_job_schedules, keyed the same as var.mssql_job_schedules"
+  value       = { for k, v in azurerm_mssql_job_schedule.mssql_job_schedules : k => v.id }
+}
 output "mssql_job_schedules_enabled" {
   description = "Map of enabled values across all mssql_job_schedules, keyed the same as var.mssql_job_schedules"
   value       = { for k, v in azurerm_mssql_job_schedule.mssql_job_schedules : k => v.enabled }
